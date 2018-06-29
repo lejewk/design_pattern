@@ -1,45 +1,20 @@
-import decorate.Beverage;
-import decorate.Condiment.Milk;
-import decorate.Condiment.Moka;
-import decorate.Drink.Espresso;
-import decorate.Drink.HouseBlend;
-import decorate.LowerCaseInputStream;
-import observer.observer.display.CurrentCondition;
-import observer.subject.WeatherData;
-
-import java.io.FileInputStream;
-import java.io.InputStream;
+import decorate.DecorateMain;
+import factory.FactoryMain;
+import observer.ObserverMain;
 
 public class Main {
 
     public static void main(String[] args) {
         // 옵저버
-//        WeatherData wd = new WeatherData();
-//        CurrentCondition cco = new CurrentCondition(wd);
-//        wd.setMeasurements(0,0,1);
-
+//        ObserverMain.test();
 
         // 데코레이터
-//        Beverage b = new Espresso();
-//        System.out.printf("커피이름 : %s | 커피 가격 : %s \n", b.getDesc(), b.cost());
-//
-//        Beverage c = new HouseBlend();
-//        c = new Milk(new Moka(c));
-//
-//        System.out.printf("커피이름 : %s | 커피 가격 : %s", c.getDesc(), c.cost());
+//        DecorateMain.test();
+//        DecorateMain.test2();
 
-
-        // 데코레이터 실전
-        try {
-            InputStream is = new LowerCaseInputStream(new FileInputStream("test.txt"));
-            int c;
-            while((c = is.read()) >= 0) {
-                System.out.print((char)c);
-            }
-
-            is.close();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+        // 팩토리 패턴
+        FactoryMain.test();
     }
 }
+
+
