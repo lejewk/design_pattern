@@ -1,3 +1,4 @@
+import command.CommandMain;
 import decorate.DecorateMain;
 import factory.FactoryMain;
 import observer.ObserverMain;
@@ -13,7 +14,10 @@ public class Main {
 //        DecorateMain.test2();
 
         // 팩토리 패턴
-        FactoryMain.test();
+//        FactoryMain.test();
+
+        // 커멘드 패턴
+        CommandMain.test();
     }
 }
 
