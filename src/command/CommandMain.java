@@ -3,21 +3,40 @@ package command;
 import command.Option.GarageDoor;
 import command.Option.Light;
 import command.commands.GarageDoorOpenCommand;
+import command.commands.NoCommand;
+import command.commands.RightOffCommand;
 import command.commands.RightOnCommand;
+import command.control.RemoteControl;
 import command.control.SimpleRemoteControl;
 
 public class CommandMain {
     public static void test() {
-        SimpleRemoteControl remote = new SimpleRemoteControl();
+        RemoteControl remote = new RemoteControl();
 
-        RightOnCommand rightOnCommand = new RightOnCommand(new Light());
-        GarageDoorOpenCommand garageDoorOpenCommand = new GarageDoorOpenCommand(new GarageDoor());
+        Light kitchenLight = new Light("부억 등");
+        RightOnCommand kitchenLightOnCommand = new RightOnCommand(kitchenLight);
+        RightOffCommand kitchenLightOffCommand = new RightOffCommand(kitchenLight);
 
-        remote.setCommand(rightOnCommand);
-        remote.buttonWasPressed();
+        Light livingRoomLight = new Light("내방 등");
+        RightOnCommand livingRoomLightOnCommand = new RightOnCommand(livingRoomLight);
+        RightOffCommand livingRoomLightOffCommand = new RightOffCommand(livingRoomLight);
 
-        remote.setCommand(garageDoorOpenCommand);
-        remote.buttonWasPressed();
+        GarageDoor garageDoor = new GarageDoor("차고 문");
+        GarageDoorOpenCommand garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
+        GarageDoorOpenCommand garageDoorCloseCommand = new GarageDoorOpenCommand(garageDoor);
 
+        remote.setCommand(0,kitchenLightOnCommand, kitchenLightOffCommand);
+        remote.setCommand(1,livingRoomLightOnCommand, livingRoomLightOffCommand);
+        remote.setCommand(2, garageDoorOpenCommand, garageDoorCloseCommand);
+
+        System.out.println(remote.toString());
+
+        remote.onButtonWasPushed(0);
+        remote.onButtonWasPushed(1);
+        remote.onButtonWasPushed(2);
+
+        remote.offButtonWasPushed(0);
+        remote.offButtonWasPushed(1);
+        remote.offButtonWasPushed(2);
     }
 }
