@@ -2,10 +2,7 @@ package command;
 
 import command.Option.GarageDoor;
 import command.Option.Light;
-import command.commands.GarageDoorOpenCommand;
-import command.commands.NoCommand;
-import command.commands.RightOffCommand;
-import command.commands.RightOnCommand;
+import command.commands.*;
 import command.control.RemoteControl;
 import command.control.SimpleRemoteControl;
 
@@ -23,7 +20,7 @@ public class CommandMain {
 
         GarageDoor garageDoor = new GarageDoor("차고 문");
         GarageDoorOpenCommand garageDoorOpenCommand = new GarageDoorOpenCommand(garageDoor);
-        GarageDoorOpenCommand garageDoorCloseCommand = new GarageDoorOpenCommand(garageDoor);
+        GarageDoorCloseCommand garageDoorCloseCommand = new GarageDoorCloseCommand(garageDoor);
 
         remote.setCommand(0,kitchenLightOnCommand, kitchenLightOffCommand);
         remote.setCommand(1,livingRoomLightOnCommand, livingRoomLightOffCommand);
