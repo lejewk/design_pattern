@@ -1,6 +1,10 @@
 package command.Option;
 
-public class Stereo {
+public class Stereo extends Options{
+    public Stereo(String name) {
+        super(name);
+    }
+
     public void on() {
 
     }
