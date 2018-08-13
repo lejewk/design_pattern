@@ -6,7 +6,7 @@ import adapter.duck.TurkeyAdapter;
 import adapter.turkey.WildTurkey;
 
 public class AdapterMain {
-    public static void main() {
+    public static void test() {
         MallardDuck duck = new MallardDuck();
 
         WildTurkey turkey = new WildTurkey();

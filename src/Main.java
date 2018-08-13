@@ -1,6 +1,8 @@
+import adapter.AdapterMain;
 import command.CommandMain;
 import decorate.DecorateMain;
 import factory.FactoryMain;
+import iterator.IteratorMain;
 import observer.ObserverMain;
 
 public class Main {
@@ -17,7 +19,13 @@ public class Main {
 //        FactoryMain.test();
 
         // 커멘드 패턴
-        CommandMain.test();
+//        CommandMain.test();
+
+        // 어뎁터 패턴
+//        AdapterMain.test();
+
+        // 이터레이터 패턴
+        IteratorMain.test();
     }
 }
 
