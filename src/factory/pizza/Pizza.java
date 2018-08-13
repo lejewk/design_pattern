@@ -1,11 +1,14 @@
 package factory.pizza;
 
+import factory.ingredients.Cheese;
+import factory.ingredients.Dough;
+
 public abstract class Pizza {
     private String name;
+    public Dough dough;
+    public Cheese cheese;
 
-    public void prepare() {
-        System.out.printf("%s (을)를 준비중입니다.\n", this.getName());
-    }
+    public abstract void prepare();
     public void cut() {
         System.out.println("컷팅합니다.");
     }
@@ -16,7 +19,6 @@ public abstract class Pizza {
     public void setName(String name) {
         this.name = name;
     }
-
     public String getName() {
         return this.name;
     }
